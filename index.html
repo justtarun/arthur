@@ -14,7 +14,7 @@
   }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.25em;
   margin-bottom: 30px;
   text-decoration: underline;
   text-decoration-color: #9370DB;
@@ -39,7 +39,7 @@ h2 {
 
   section {
     max-width: 900px;
-    margin: 0 auto 80px auto;
+    margin: 60px auto 60px auto;
     padding: 40px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -71,11 +71,15 @@ h2 {
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   }
 
-  .intro-text {
-    max-width: 800px;
-    margin: 25px auto 0 auto;
-    text-align: left;
-  }
+.intro-text {
+  max-width: 800px;
+  margin: 25px auto 0 auto;
+  text-align: left;
+  font-size: 1.25em;       /* slightly larger text */
+  line-height: 1.6;       /* improves readability */
+  text-indent: 1.5em;     /* first-line paragraph indent */
+}
+
 
   iframe {
     width: 100%;
@@ -93,9 +97,23 @@ h2 {
 }
 
 .simple-gallery a {
+  display: inline-block;          /* allows padding & background */
+  padding: 15px;
+  background: #f4f6fa;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.25em;
   text-decoration: none;
   color: inherit;
-  text-align: center;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.simple-gallery a:hover {
+  transform: scale(1.05);
+  background: #e0e6f5;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .simple-gallery img {
@@ -103,18 +121,14 @@ h2 {
   height: auto;
   display: block;
   border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.simple-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .simple-gallery span {
   display: block;
   margin-top: 10px;
   font-weight: bold;
+}
+
 }
 
 </style>
@@ -129,6 +143,8 @@ h2 {
     Welcome to Drone Insights, where innovation meets stunning visuals. Our drone photography services offer a unique glimpse into the world from above. Witness captivating landscapes, architectural details, and more, all captured with precision and creativity.
   </p>
 </section>
+
+
 <h2>Services</h2>
 <section id="services">
   <div class="grid">
@@ -148,7 +164,7 @@ h2 {
 
   <div id="service-detail" style="display:none; text-align:center; margin-top:50px; opacity:0; transition: opacity 0.5s ease;">
     <img id="service-img" src="" alt="" style="max-width:80%; height:auto; border-radius:10px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
-    <p id="service-desc" style="margin-top:15px; font-size:1.15em; line-height:1.5;"></p>
+    <p id="service-desc" style="margin-top:15px; font-size:1.25em; line-height:1.5;"></p>
   </div>
 </section>
 
@@ -168,6 +184,7 @@ h2 {
     transition: transform 0.3s, background 0.3s;
     text-align: center;
     font-size: 1.25em;
+    font-weight: bold;
   }
   #services .service:hover {
     transform: scale(1.05);
@@ -215,6 +232,8 @@ h2 {
   });
 </script>
 
+
+
 <h2>Portfolio</h2>
 <section id="portfolio">
 
@@ -260,11 +279,70 @@ h2 {
 <h2>Contact</h2>
 <section id="contact">
   <div class="grid">
-    <div>📧 <a href="mailto:arthurlong117@gmail.com">arthurlong117@gmail.com</a></div>
-    <div>📞 <a href="tel:6468721248">646-872-1248</a></div>
+    <div class="contact-btn">📧 <a href="mailto:arthurlong117@gmail.com">arthurlong117@gmail.com</a></div>
+    <div class="contact-btn">📞 <a href="tel:6468721248">646-872-1248</a></div>
   </div>
   <br>
 </section>
+
+<style>
+  /* Match the grid style from services */
+  #contact .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+  }
+
+  /* Contact buttons */
+  #contact .contact-btn {
+    padding: 20px;
+    background: #f4f6fa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  /* Hover effect */
+  #contact .contact-btn:hover {
+    transform: scale(1.05);
+    background: #e0e6f5;
+  }
+
+  /* Optional: underline on click */
+  #contact .contact-btn.active {
+    text-decoration: underline;
+  }
+
+  /* Make links inherit the button styles */
+  #contact .contact-btn a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+<script>
+  const contactBtns = document.querySelectorAll('#contact .contact-btn');
+  let activeContact = null;
+
+  contactBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (activeContact === btn) {
+        btn.classList.remove('active');
+        activeContact = null;
+      } else {
+        if (activeContact) activeContact.classList.remove('active');
+        btn.classList.add('active');
+        activeContact = btn;
+      }
+    });
+  });
+</script>
 
 
 </body>
