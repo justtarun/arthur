@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drone Insights</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 60px 20px 20px 20px;
+    background: linear-gradient(135deg, #f0f0f5 0%, #e0e6f0 50%, #d9e2f2 100%);
+    color: #222;
+    line-height: 1.6;
+  }
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  text-decoration-color: #9370DB;
+  text-align: left; /* aligned with the section instead of centered */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px; /* matches section width */
+}
+
+
+  h1 {
+    font-size: 4em;                  /* really big */
+    margin-bottom: 40px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #FF6F61;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3); /* subtle 3D effect */
+    color: #222;                     /* strong contrast text */
+    letter-spacing: 2px;             /* more presence */
+}
+
+
+  section {
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  #reel { background-color: #ffffff; }
+  #services { background-color: #f0f8ff; }
+  #portfolio { background-color: #f5fff0; }
+  #contact { background-color: #fffaf0; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+  }
+
+  .grid div {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .grid div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 25px auto 0 auto;
+    text-align: left;
+  }
+
+  iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+  }
+
+.simple-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin: 40px 0;
+}
+
+.simple-gallery a {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+
+.simple-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.simple-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.simple-gallery span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Drone Insights</h1>
+<section id="reel">
+  <br>
+  <iframe src="https://www.youtube.com/embed/_Q6ye6vX4Fk?autoplay=1&mute=1" title="Drone Reel" allowfullscreen></iframe>
+  <p class="intro-text">
+    Welcome to Drone Insights, where innovation meets stunning visuals. Our drone photography services offer a unique glimpse into the world from above. Witness captivating landscapes, architectural details, and more, all captured with precision and creativity.
+  </p>
+</section>
+<h2>Services</h2>
+<section id="services">
+  <div class="grid">
+    <div class="service" data-title="Surveying" data-img="https://picsum.photos/400/250?random=1" data-desc="Professional surveying services for accurate land measurements.">
+      Surveying
+    </div>
+    <div class="service" data-title="Mapping" data-img="https://picsum.photos/400/250?random=2" data-desc="High-quality mapping solutions for any project.">
+      Mapping
+    </div>
+    <div class="service" data-title="Thermal Imaging" data-img="https://picsum.photos/400/250?random=3" data-desc="Advanced thermal imaging for inspections and diagnostics.">
+      Thermal Imaging
+    </div>
+    <div class="service" data-title="Roof Inspections" data-img="https://picsum.photos/400/250?random=4" data-desc="Thorough roof inspections to ensure safety and durability.">
+      Roof Inspections
+    </div>
+  </div>
+
+  <div id="service-detail" style="display:none; text-align:center; margin-top:50px; opacity:0; transition: opacity 0.5s ease;">
+    <img id="service-img" src="" alt="" style="max-width:80%; height:auto; border-radius:10px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+    <p id="service-desc" style="margin-top:15px; font-size:1.15em; line-height:1.5;"></p>
+  </div>
+</section>
+
+<style>
+  #services .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+  }
+  #services .service {
+    padding: 20px;
+    background: #f4f6fa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+    font-size: 1.25em;
+  }
+  #services .service:hover {
+    transform: scale(1.05);
+    background: #e0e6f5;
+  }
+  #services .service.active {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  const services = document.querySelectorAll('#services .service');
+  const detail = document.getElementById('service-detail');
+  const img = document.getElementById('service-img');
+  const desc = document.getElementById('service-desc');
+
+  let activeService = null;
+
+  services.forEach(service => {
+    service.addEventListener('click', () => {
+      if (activeService === service) {
+        // Collapse instantly
+        detail.style.display = 'none';
+        service.classList.remove('active');
+        activeService = null;
+      } else {
+        if (activeService) activeService.classList.remove('active');
+
+        // Update content
+        img.src = service.dataset.img;
+        img.alt = service.dataset.title;
+        desc.textContent = service.dataset.desc;
+
+        // Show with fade-in
+        detail.style.display = 'block';
+        detail.style.opacity = 0;
+        setTimeout(() => {
+          detail.style.opacity = 1;
+        }, 10);
+
+        service.classList.add('active');
+        activeService = service;
+      }
+    });
+  });
+</script>
+
+<h2>Portfolio</h2>
+<section id="portfolio">
+
+  <div class="simple-gallery">
+    <a href="https://www.jetstar117.com/portfolio-collections/my-portfolio/allentown-presbyterian-church" target="_self">
+      <img src="https://static.wixstatic.com/media/b30590_a3ce91f290c1404a84c2e311fc4ab6ff~mv2.jpg" alt="Allentown Presbyterian Church">
+      <span>Allentown Presbyterian Church</span>
+    </a>
+
+    <a href="https://www.jetstar117.com/portfolio-collections/my-portfolio/allentown-town-hall" target="_self">
+      <img src="https://static.wixstatic.com/media/b30590_814f9579e0044edbac523175c42e5b70~mv2.jpg" alt="Allentown Town Hall">
+      <span>Allentown Town Hall</span>
+    </a>
+
+    <a href="https://www.jetstar117.com/portfolio-collections/my-portfolio/kohls" target="_self">
+      <img src="https://static.wixstatic.com/media/b30590_07d61aee7b6c4a96863cd1966b3f9638~mv2.jpg" alt="Kohls">
+      <span>Kohls</span>
+    </a>
+
+    <a href="https://www.jetstar117.com/portfolio-collections/my-portfolio/walmart" target="_self">
+      <img src="https://static.wixstatic.com/media/b30590_53a579e945e543969a6f9dcab02073e1~mv2.jpg" alt="Walmart">
+      <span>Walmart</span>
+    </a>
+
+    <a href="https://www.jetstar117.com/portfolio-collections/my-portfolio/medical-pharmacy" target="_self">
+      <img src="https://static.wixstatic.com/media/b30590_2aa0c6dfeb08423a8ecfabc50ed64030~mv2.jpg" alt="Medical Pharmacy">
+      <span>Medical Pharmacy</span>
+    </a>
+
+    <a href="https://www.jetstar117.com/portfolio-collections/my-portfolio/restaurant-aerial-views" target="_self">
+      <img src="https://static.wixstatic.com/media/b30590_a7c5df2373db427588b8e75ae753bff9~mv2.jpg" alt="Restaurant Aerial Views">
+      <span>Restaurant Aerial Views</span>
+    </a>
+
+    <a href="https://www.jetstar117.com/portfolio-collections/my-portfolio/malls" target="_self">
+      <img src="https://static.wixstatic.com/media/b30590_3f2fa2b02f214d9f99bc4ae4eea416c6~mv2.jpg" alt="Malls">
+      <span>Malls</span>
+    </a>
+  </div>
+</section>
+
+
+<h2>Contact</h2>
+<section id="contact">
+  <div class="grid">
+    <div>📧 <a href="mailto:arthurlong117@gmail.com">arthurlong117@gmail.com</a></div>
+    <div>📞 <a href="tel:6468721248">646-872-1248</a></div>
+  </div>
+  <br>
+</section>
+
+
+</body>
+</html>
